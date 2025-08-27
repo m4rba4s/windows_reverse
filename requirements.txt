@@ -1,0 +1,9 @@
+# LAB-9 Reverse Warfare Trainer - Python Dependencies
+
+# CLI framework
+click>=8.0.0
+ 
+# Development dependencies (optional)
+pytest>=7.0.0
+black>=22.0.0
+flake8>=5.0.0 

@@ -1,0 +1,77 @@
+name: LAB-9 Build and Test
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y mingw-w64 gcc-multilib g++-multilib
+        pip install click
+        
+    - name: Build all levels
+      run: |
+        python tools/build.py
+        
+    - name: Run no-debugger tests
+      run: |
+        python tests/test_no_dbg.py
+        
+    - name: Run partial-patch tests
+      run: |
+        python tests/test_partial_patch.py
+        
+    - name: Verify builds
+      run: |
+        python tools/build.py --verify
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: lab9-binaries
+        path: bin/
+        
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: tests/results_*.json
+
+  test-cli:
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install dependencies
+      run: |
+        pip install click
+        
+    - name: Test CLI functionality
+      run: |
+        python tools/labctl.py --help
+        python tools/labctl.py status
+        python tools/labctl.py clean 

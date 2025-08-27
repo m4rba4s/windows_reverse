@@ -1,0 +1,150 @@
+# LAB-9 Reverse Engineering Lab - Git Ignore
+
+# Build artifacts
+bin/
+build/
+*.exe
+*.obj
+*.o
+*.dll
+*.so
+*.dylib
+
+# Test results
+tests/results_*.json
+tests/*.log
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Solutions (HIDDEN FROM PUBLIC)
+SOLUTIONS.md
+solutions/
+walkthroughs/
+*.1337
+*.bps
+*.patch
+
+# Debug files
+*.pdb
+*.map
+*.ilk
+
+# OS specific
+*.exe
+*.msi
+*.dmg
+*.deb
+*.rpm
+
+# Security
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+
+# Documentation drafts
+DRAFT_*.md
+TODO.md
+NOTES.md
+
+# Backup files
+*.orig
+*.rej
+*.old
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+*.cache
+
+# Compiled Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Solutions and walkthroughs (HIDDEN)
+SOLUTIONS.md
+solutions/
+walkthroughs/
+*.1337
+*.bps
+*.patch
+*.cheat
+*.hint 
